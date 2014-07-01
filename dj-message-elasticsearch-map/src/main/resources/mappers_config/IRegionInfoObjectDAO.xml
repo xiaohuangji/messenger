@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <mapper namespace="com.dajie.message.elasticsearch.map.dao.IRegionInfoObjectDAO">
+    
+    <resultMap type="com.dajie.message.model.map.RegionInfoObject" id="map">
+    	<result property="regionCode" column="region_code"/>
+    	<result property="regionName" column="region_name"/>
+    	<result property="parentId" column="parent_id"/>
+    	<result property="regionLevel" column="region_level"/>
+    	<result property="regionOrder" column="region_order"/>
+    	<result property="regionNameEn" column="region_name_en"/>
+    	<result property="regionLat" column="region_lat"/>
+    	<result property="regionLon" column="region_lon"/>
+    	<result property="regionUniqueId" column="region_unique_id"/>
+    	<result property="regionShortNameEn" column="region_short_name_en"/>
+    </resultMap>
+
+    
+       	<select id="select" parameterType="int" resultType="com.dajie.message.model.map.RegionInfoObject" resultMap="map" >
+    		<![CDATA[select id,region_code,region_name,parent_id,region_level,region_order,region_lat,region_lon,region_unique_id,region_name_en,region_short_name_en 
+    		 from region where id = #{id} ]]>
+    	</select>
+    	
+    	<select id="getByName" parameterType="String" resultType="com.dajie.message.model.map.RegionInfoObject" resultMap="map">
+    		<![CDATA[select id,region_code,region_name,parent_id,region_level,region_order,region_lat,region_lon,region_unique_id,region_name_en,region_short_name_en 
+    		 from region where region_name = #{regionName} ]]>
+    	</select>
+    	
+    	<select id="getByParentId" parameterType="int" resultType="com.dajie.message.model.map.RegionInfoObject" resultMap="map" >
+    		<![CDATA[select id,region_code,region_name,parent_id,region_level,region_order,region_lat,region_lon,region_unique_id,region_name_en,region_short_name_en 
+    		 from region where parent_id = #{parentId} ]]>
+    	</select>
+    
+        <update id="updateRegionInfo" parameterType="com.dajie.message.model.map.RegionInfoObject">
+    		<![CDATA[update region set 
+			region_lat = #{regionLat},region_lon = #{regionLon},
+			region_unique_id = #{regionUniqueId} 
+    		 where id = #{id}]]>
+    	</update>
+    
+</mapper>

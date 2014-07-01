@@ -1,0 +1,100 @@
+<?xml  version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd    
+        http://www.springframework.org/schema/context     
+        http://www.springframework.org/schema/context/spring-context.xsd    
+        http://www.springframework.org/schema/mvc     
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd"  >
+
+    <!-- Default View Resolver -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**" />-->
+            <!--<mvc:exclude-mapping path="/account/login-only" />-->
+            <!--<bean class="com.dajie.wika.wap.interceptors.CommonInterceptor"></bean>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+    <mvc:resources location="/WEB-INF/css/" mapping="/admin/css/**"/>
+    <mvc:resources location="/WEB-INF/js/" mapping="/admin/js/**"/>
+    <mvc:resources location="/WEB-INF/fonts/" mapping="/admin/fonts/**"/>
+
+    <!-- spring bean管理 -->
+    <!--<import resource="/spring/applicationContext-service.xml" />-->
+    <!--<import resource="/spring/applicationContext-dubbo.xml" />-->
+
+    <!--<context:annotation-config />-->
+
+    <!--&lt;!&ndash; datasource &ndash;&gt;-->
+    <!--<bean id="mobileDataSource" class="com.dajie.message.util.database.DataSource">-->
+        <!--<property name="dbName" value="db_jobmessage"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; session factory &ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="mobileDataSource" />-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; scan for dao factory &ndash;&gt;-->
+    <!--<bean id="dbBeanDefinitionRegistryPostProcessor" class="com.dajie.message.util.database.DBBeanDefinitionRegistryPostProcessor">-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+        <!--<property name="dbPackages">-->
+            <!--<list>-->
+                <!--<value>com.dajie.message.dao</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--inject admin service-->
+    <!--<bean id="serviceDefinitionRegistryPostProcess" class="com.dajie.messageadmin.listener.ServiceDefinitionRegistryPostProcess">-->
+        <!--<property name="servicePackages">-->
+            <!--<list>-->
+                <!--<value>com.dajie.message.service</value>-->
+                <!--<value>com.dajie.messageadmin.controller</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="excludeServices">-->
+            <!--<list>-->
+                <!--<value>accountService</value>-->
+                <!--<value>auxService</value>-->
+                <!--<value>djAccountService</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <context:component-scan base-package="com.dajie.messageadmin.controller"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <bean id="ipInterceptor" class="com.dajie.messageadmin.interceptor.IpInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

@@ -1,0 +1,41 @@
+#example  {
+float: left;
+}
+#div-before, #div-after  {
+background-color: #88d;
+color: #000;  
+width:400px;   
+}
+#example div p {
+margin: 0 .25em;
+padding: .25em 0;
+}
+#div-1 {
+/* 等下补充的定位属性 */
+/*position: relative;
+*//*top:20px;
+left: 150px;*/
+
+}
+#div-1 {
+width:400px;
+background-color: #000;
+color:#fff;
+}
+#div-1a {
+background-color: #f00;
+color:#fff;
+position: absolute;
+top: 0;
+left: 500;
+width: 200px;
+}
+#div-1b {
+background-color: green;
+color:#fff;
+
+}
+#div-1c {
+background-color: blue;
+color:#fff;    
+}

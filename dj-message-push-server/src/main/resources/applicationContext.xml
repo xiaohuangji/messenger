@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="dBStorageManager" class="com.dajie.push.storage.DBStorageManager">
+        <property name="clientInfoDAO" ref="clientInfoDAO"></property>
+        <property name="pushInfoDAO" ref="pushInfoDAO"></property>
+        <property name="appInfoDAO" ref="appInfoDAO"></property>
+        <property name="pushStatsInfoDAO" ref="pushStatsInfoDAO"></property>
+    </bean>
+
+    <bean id="iosPushFilter" class="com.dajie.push.netty.filter.IosPushFilter">
+        <property name="notificationSettingDAO" ref="notificationSettingDAO"></property>
+        <property name="userIosTokenDAO" ref="userIosTokenDAO"></property>
+    </bean>
+
+    <bean id="blackListFilter" class="com.dajie.push.netty.filter.BlackListFilter">
+        <property name="blackListDAO" ref="blackListDAO"></property>
+        <property name="friendsDAO" ref="friendsDAO"></property>
+        <property name="privacySettingDAO" ref="privacySettingDAO"></property>
+    </bean>
+
+    <bean id="payloadCheckFilter" class="com.dajie.push.netty.filter.PayloadCheckFilter">
+        <property name="feedbackDAO" ref="feedbackDAO"></property>
+        <property name="userDeviceInfoDAO" ref="userDeviceInfoDAO"></property>
+    </bean>
+
+    <bean id="dataSource" class="com.dajie.push.storage.daoinject.DataSource" init-method="init">
+        <property name="dbName" value="db_jobmessage"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dajie.push.storage.dao" />
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->
+    </bean>
+</beans>

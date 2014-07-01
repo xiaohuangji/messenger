@@ -1,0 +1,617 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.dajie</groupId>
+		<artifactId>dj-base-parent</artifactId>
+		<version>2.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dajie</groupId>
+	<artifactId>dj-gouda-webapp</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>dj-gouda-webapp Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<springframework-version>3.2.5.RELEASE</springframework-version>
+		<mybatis-spring-version>1.2.1</mybatis-spring-version>
+		<mybatis-version>3.2.3</mybatis-version>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
+		<jackson-jaxrs-version>1.9.13</jackson-jaxrs-version>
+		<jackson-version>2.2.0</jackson-version>
+		<log4j-version>1.2.17</log4j-version>
+		<commons-lang-version>2.3</commons-lang-version>
+		<mysql-connector-java-version>5.1.27</mysql-connector-java-version>
+		<jedis-version>2.2.1</jedis-version>
+		<commons-codec-version>1.8</commons-codec-version>
+		<servlet-api-version>2.5</servlet-api-version>
+		<cobar-driver-version>1.0.0</cobar-driver-version>
+		<perf4j-version>0.9.16</perf4j-version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-infra-tinyurl-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- spring dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+
+		<!-- data base dependencies -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.cobar</groupId>
+			<artifactId>cobar-driver</artifactId>
+			<version>${cobar-driver-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring-version}</version>
+		</dependency>
+
+
+
+		<!-- json dependencies -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>${jackson-jaxrs-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+
+		<!-- logs -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.perf4j</groupId>
+			<artifactId>perf4j</artifactId>
+			<version>${perf4j-version}</version>
+		</dependency>
+
+
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec-version}</version>
+		</dependency>
+
+
+		<!-- cache -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.1.0.RELEASE</version>
+		</dependency>
+
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api-version}</version>
+		</dependency>
+
+		<!-- dajie dependencies -->
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-job-queue</artifactId>
+			<version>1.0.27-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-job-interface</artifactId>
+			<version>2.7.00-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-job-api</artifactId>
+			<version>2.6.00-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-job-model</artifactId>
+			<version>2.7.00-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-common-ibatis</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>ibatis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-job-client</artifactId>
+			<version>2.6.05-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-framework-application</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-pt-invitation-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-pt-email</artifactId>
+			<version>2.2.61</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>ibatis</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-common-file</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-common-ibatis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-sms-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>dj-common-dubbo</artifactId>
+					<groupId>com.dajie</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-infra-user-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-infra-user-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- dajie profile -->
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-dictionary-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-profile-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-corp-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-gouda-queue</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-corp-model</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-common-ibatis</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jstl</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-common-file</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-search-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-common-ibatis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-common-dubbo</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-common-framework</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>ibatis</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-common-ibatis</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<dependency>
+			<artifactId>dj-gouda-api</artifactId>
+			<groupId>com.dajie</groupId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-gouda-push-client</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-gouda-dubbo-client</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-framework-cluster-cache</artifactId>
+			<version>1.0.06</version>
+			<exclusions>
+				<exclusion>
+					<groupId>net.sf.json</groupId>
+					<artifactId>JSONObject</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.spy</groupId>
+					<artifactId>memcached</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sina</groupId>
+			<artifactId>weibo4j</artifactId>
+			<version>beta2.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.renren.api</groupId>
+			<artifactId>renren-api2-sdk</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>qq-connect</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-gouda-elasticsearch-map</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.lucene</groupId>
+					<artifactId>lucene-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.lucene</groupId>
+					<artifactId>lucene-memory</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.lucene</groupId>
+					<artifactId>lucene-highlighter</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>4.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-memory</artifactId>
+			<version>4.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>4.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-common-file</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- 大街静态文件框架 -->
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-hudong-framework</artifactId>
+			<version>2.0.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-infra-user-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-infra-user-service</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-infra-user-model</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.dajie</groupId>
+					<artifactId>dj-pt-connection</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- 字典拼音 -->
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-dictionary-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-dictionary-client</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>dj-message-webapp</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.java</include>
+				</includes>
+				<excludes>
+					<exclude>.svn</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>gen_src</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.java</include>
+				</includes>
+				<excludes>
+					<exclude>.svn</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<verbose>true</verbose>
+					<encoding>UTF-8</encoding>
+					<compilerArguments>
+						<sourcepath>${project.basedir}/src/main/java</sourcepath>
+						<sourcepath>${project.basedir}/gen_src</sourcepath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<archiveClasses>true</archiveClasses>
+					<webResources>
+						<resource>
+							<directory>src/main/resources</directory>
+							<targetPath>WEB-INF/classes</targetPath>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</resource>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<targetPath>/</targetPath>
+							<excludes>
+								<exclude>**/*.jsp</exclude>
+							</excludes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

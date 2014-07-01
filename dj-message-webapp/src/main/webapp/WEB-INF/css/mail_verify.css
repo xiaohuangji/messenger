@@ -1,0 +1,97 @@
+html,
+body {
+    background-color: #ebeef0;
+    /*font-family: 'microsoft yahei', tahoma;*/
+}
+.p-page-wrap {
+    width: 360px;
+    margin: 0 auto;
+}
+.p-main-img h2 {
+    font-size: 3em;
+    color: #ef7030;
+    font-weight: bold;
+    background: url(../img/suc-tip-bg.png) no-repeat;
+    padding-left: 55px;
+    line-height: 1;
+    margin: 50px auto 30px;
+}
+.p-main-img p {
+    font-size: 1.5em;
+    color: #66686a;
+    text-align: center;
+}
+.p-main-img span {
+    display: block;
+    background: url(../img/gd-cat-bg.png) no-repeat;
+    width: 351;
+    height: 173px;
+    margin: 25px auto 0;
+}
+.p-btn-box {
+    padding-top: 30px;
+}
+.p-phone-btn,
+.p-phone-btn:hover,
+.p-phone-btn:visited {
+    display: none;
+    font-size: 1.4em;
+    color: #fff;
+    background: #22a9bc;
+    padding: 14px 0;
+    text-align: center;
+    width: 205px;
+    margin: 15px auto;
+    border-radius: 5px;
+}
+.p-phone-btn:active {
+    background: #2099aa;
+}
+.p-btn-nom,
+.p-btn-nom:hover,
+.p-btn-nom:visited {
+    background: #ef7030;
+    display: block;
+}
+.p-btn-nom:active {
+    background: #df692d;
+}
+/** phone端样式 **/
+.m body {
+    font-size: 10px;
+}
+.m .p-page-wrap {
+    width: auto;
+}
+.m .p-main-img h2 {
+    background: none;
+    text-align: center;
+    padding: 0;
+    margin: 25px 0 15px;
+}
+.m .p-main-img h2:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: url(../img/suc-tip-bg.png) no-repeat;
+    background-size: 24px 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    position: relative;
+    top: -3px;
+}
+.m .p-main-img span {
+    width: 220px;
+    height: 108px;
+    background-size: 220px 108px;
+}
+.m .p-phone-btn {
+    display: block;
+    width: 150px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+.m .p-btn-box {
+    padding-top: 15px;
+}

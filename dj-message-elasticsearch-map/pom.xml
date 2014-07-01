@@ -1,0 +1,343 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.dajie</groupId>
+        <artifactId>dj-base-parent</artifactId>
+        <version>2.0.1-SNAPSHOT</version>
+    </parent>
+    
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.dajie</groupId>
+  <artifactId>dj-gouda-elasticsearch-map</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  
+  <dependencies>
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.2.5.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>3.2.5.RELEASE</version>
+				<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+					</exclusion>
+				</exclusions>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>3.2.5.RELEASE</version>
+				<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+					</exclusion>
+					<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+					</exclusion>
+				</exclusions>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>3.2.5.RELEASE</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+					</exclusion>
+					<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+					</exclusion>
+				</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.2.5.RELEASE</version>
+			<exclusions>
+				<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+		  		</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.5.RELEASE</version>
+			<exclusions>
+			<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+		  	</exclusion>
+			<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+		  	</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.2.5.RELEASE</version>
+			<exclusions>
+			<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+		  	</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.2.5.RELEASE</version>
+			<exclusions>
+			<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+		  	</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2</version>
+		</dependency>
+  
+  
+  
+  		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>1.0.0</version>
+			<exclusions>
+			  	<exclusion>
+			  		  <groupId>org.apache.lucene</groupId>
+  					<artifactId>lucene-core</artifactId>
+			  	</exclusion>
+			  	<exclusion>
+			  		  <groupId>org.apache.lucene</groupId>
+  					<artifactId>lucene-memory</artifactId>
+			  	</exclusion>
+			  	<exclusion>
+			  		  <groupId>org.apache.lucene</groupId>
+  					<artifactId>lucene-highlighter</artifactId>
+			  	</exclusion>
+			  </exclusions>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.apache.lucene</groupId>
+  				<artifactId>lucene-core</artifactId>
+  				<version>4.6.1</version>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.apache.lucene</groupId>
+  				<artifactId>lucene-memory</artifactId>
+  				<version>4.6.1</version>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.apache.lucene</groupId>
+  				<artifactId>lucene-highlighter</artifactId>
+  				<version>4.6.1</version>
+		</dependency>
+			
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>log4j</groupId>
+		  <artifactId>log4j</artifactId>
+		  <version>1.2.17</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-log4j12</artifactId>
+		  <version>1.7.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>1.12.2</version>
+		  <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>commons-httpclient</groupId>
+		  <artifactId>commons-httpclient</artifactId>
+		  <version>3.1</version>
+		  	<exclusions>
+		  		<exclusion>
+					  <groupId>commons-logging</groupId>
+  						<artifactId>commons-logging</artifactId>
+				</exclusion>
+		  	</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dajie</groupId>
+			<artifactId>dj-framework-config-client</artifactId>
+			<version>1.2.02-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+				 	<groupId>log4j</groupId>
+		  			<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+				 	<groupId>org.slf4j</groupId>
+		  			<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					  <groupId>org.slf4j</groupId>
+					  <artifactId>jcl-over-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<artifactId>dj-gouda-api</artifactId>
+			<groupId>com.dajie</groupId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+  
+  		<dependency>
+		  <groupId>com.dajie</groupId>
+		  <artifactId>dj-dictionary-api</artifactId>
+		  <version>1.0.5</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.dajie</groupId>
+		  <artifactId>dj-dictionary-client</artifactId>
+		  <version>1.0.5</version>
+		  <exclusions>
+		  	<exclusion>
+					<groupId>com.dajie</groupId>
+		  			<artifactId>dj-dictionary-api</artifactId>
+				</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+		  	</exclusion>
+		  	<exclusion>
+		  		<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+		  	</exclusion>
+				<exclusion>
+				 	<groupId>log4j</groupId>
+		  			<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+				 	<groupId>org.slf4j</groupId>
+		  			<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					  <groupId>commons-logging</groupId>
+  						<artifactId>commons-logging</artifactId>
+				</exclusion>
+		  </exclusions>
+		</dependency>
+  
+  </dependencies>
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<verbose>true</verbose>
+					<encoding>UTF-8</encoding>
+					<compilerArguments>
+						<sourcepath>${project.basedir}/src/main/*</sourcepath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+  
+  
+  
+</project>

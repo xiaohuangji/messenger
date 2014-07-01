@@ -1,0 +1,45 @@
+/*
+    *@名称：reset
+    *功能：移动端专用
+*/
+div,p,dl,dd,a,b,em,input,textarea,button,select,form,section,label,span,td,li,nav,footer,body,ul,i{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    word-wrap:break-word;
+    word-break:break-all;
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+a:focus,a:active,textarea,input,button,select{
+    outline: none;
+}
+body,td,input,textarea,option,select,button{
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:1em;
+    -webkit-text-size-adjust: none;
+}
+body{
+    -webkit-user-select: none;
+    user-select: none;
+    overflow-x:hidden;
+}
+img,video,nav,textarea,input,button,select{
+    border:0;
+    vertical-align:bottom;
+}
+a{
+    text-decoration:none;
+    color:#d80c18;
+    -webkit-touch-callout:none;
+}
+.clearfix:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}

@@ -1,0 +1,3 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+	<a class="app_dowaload download_iphone" type="ios" id="download_iphone"  ios6="itms-services://?action=download-manifest&url=http://p0.goudajob.com:8080/GGD_house.plist" href="itms-services://?action=download-manifest&url=https://p0.goudajob.com:8443/GGD_house.plist">iPhone下载</a>
+	<a  class="app_dowaload download_android disabled" type="android" id="download_android">敬请期待</a>

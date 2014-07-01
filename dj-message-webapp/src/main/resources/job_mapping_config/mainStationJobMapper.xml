@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <mapper namespace="com.dajie.message.service.worker.MainStationJobDao">
+       
+	    <select id="listJobThirdPartModel" parameterType="Map" resultType="string">
+	    	<![CDATA[select jid from tb_job  limit #{start},#{pagesize} ]]>
+	    </select>
+	    
+	    <select id="listJobThirdPartModels" parameterType="Map" resultType="com.dajie.message.model.job.JobThirdPartModel">
+	    	<![CDATA[select * from tb_job where seq < #{start} order by seq desc limit 0,#{pagesize} ]]>
+	    </select>
+	    
+		 <select id="selectSimpleJobQualify" parameterType="String" resultType="com.dajie.message.model.job.JobQualifyModel">
+	    	<![CDATA[select experience,degree from tb_job_qualify where jid=#{jid} ]]>
+	    </select>
+	    
+	    
+    </mapper>
+    

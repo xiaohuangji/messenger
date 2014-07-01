@@ -1,0 +1,28 @@
+#connTh{
+	text-align: center;
+}
+
+#upStreamTh{
+	text-align: center;
+}
+
+#downStreamTh{
+	text-align: center;
+}
+
+
+#updateTimeTh{
+	text-align: center;
+	width: 220px;
+}
+#serverNameTh{
+	text-align: center;
+	width: 150px;
+}
+
+
+
+.p-monitor-table{
+	table-layout: fixed;
+}
+

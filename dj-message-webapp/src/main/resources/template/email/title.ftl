@@ -1,0 +1,1 @@
+<#include '${e_category}/${e_template}_title.ftl' />

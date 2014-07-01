@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        ">
+
+	<!-- datasource -->
+	<bean id="mobileDataSource" class="com.dajie.message.util.database.DataSource">
+		<property name="dbName" value="db_jobmessage"/>
+	</bean>
+	
+	<!-- session factory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="mobileDataSource" />
+		<property name="mapperLocations" value="classpath*:mappers_config/*.xml"></property>
+	</bean>
+	
+	<!-- scan for dao factory -->
+	<bean id="dbBeanDefinitionRegistryPostProcessor" class="com.dajie.message.util.database.DBBeanDefinitionRegistryPostProcessor">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<property name="dbPackages">
+			<list>
+				<value>com.dajie.message.dao</value>
+			</list>
+		</property>
+	</bean>
+
+	
+	
+	<bean id="mainStationJobDataSource" class="com.dajie.message.util.database.DataSource">
+		<property name="dbName" value="db_recruit"/>
+	</bean>
+	
+		<!-- session factory -->
+	<bean id="mainStationJobFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="mainStationJobDataSource" />
+		<property name="mapperLocations" value="classpath*:job_mapping_config/*.xml"/>
+	</bean>
+	
+	<bean id="mainStationJobDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value = "com.dajie.message.service.worker.MainStationJobDao"/>
+		<property name="sqlSessionFactory" ref = "mainStationJobFactory"/>
+	</bean>
+	
+	
+</beans>

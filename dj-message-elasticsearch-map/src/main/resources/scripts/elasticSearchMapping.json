@@ -1,0 +1,296 @@
+
+#for ik & smart_cn:
+POST /dajie_message_index
+{
+  "settings": {
+    "number_of_shards": 2
+  },
+  "mappings": {
+    "dajie_message_type_job": {
+      "properties": {
+        "objectType": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "jobId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "status": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "authorId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "name": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "companyId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "companyName": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "tag": {
+          "type": "string",
+          "analyzer": "whitespace"
+        },
+        "salaryMin": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "salaryMax": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "experience": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "education": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "jobType": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "industry": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "startTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "endTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "createTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "updateTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "address": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "district": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "city": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "province": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "nameOfPOI": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "uidOfPOI": {
+          "type": "string",
+          "analyzer": "whitespace"
+        },
+        "location": {
+          "type": "geo_point",
+          "lat_lon": "true"
+        },
+        "distance": {
+          "type": "long",
+          "index": "not_analyzed"
+        }
+      }
+    },
+    "dajie_message_type_person": {
+      "properties": {
+        "objectType": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "userId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "gender": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "isVerified": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "isStudent": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "isShowable": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "isVisibility": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "isColleagueVisibility": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "name": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "position": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "industry": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "jobType": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "companyId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "companyName": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "tag": {
+          "type": "string",
+          "analyzer": "whitespace"
+        },
+        "experience": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "education": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "createTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "updateTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "school": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "major": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "schoolLabel": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "address": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "district": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "city": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "province": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "nameOfPOI": {
+          "type": "string",
+          "indexAnalyzer": "ik",
+          "searchAnalyzer": "ik"
+        },
+        "uidOfPOI": {
+          "type": "string",
+          "analyzer": "whitespace"
+        },
+        "location": {
+          "type": "geo_point",
+          "lat_lon": "true"
+        },
+        "distance": {
+          "type": "long",
+          "index": "not_analyzed"
+        }
+      }
+    }
+  }
+}
+
+
+#for campaign
+
+POST /dajie_message_index_campaign
+{
+  "settings": {
+    "number_of_shards": 2
+  },
+  "mappings": {
+    "dajie_message_type_campaign": {
+      "_ttl": {
+        "enabled": true,
+        "default": "10m"
+      },
+      "properties": {
+        "campaignId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "userId": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "expireTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "createTime": {
+          "type": "long",
+          "index": "not_analyzed"
+        },
+        "location": {
+          "type": "geo_point",
+          "lat_lon": "true"
+        }
+      }
+    }
+  }
+}

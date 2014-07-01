@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <mapper namespace="com.dajie.message.elasticsearch.map.dao.IPoiInfoObjectDAO">
+    
+    <resultMap type="com.dajie.message.model.map.PoiInfoObject" id="map">
+    	<result property="uniqueId" column="unique_id"/>
+    	<result property="streetNumber" column="street_number"/>
+    	<result property="createTime" column="create_time"/>
+    	<result property="updateTime" column="update_time"/>
+    </resultMap>
+    
+    <insert id="insert"  parameterType="com.dajie.message.model.map.PoiInfoObject">
+    		<![CDATA[insert into unique_poi_info(unique_id,name,lat,lon,city,district,province,street,street_number,address,create_time)
+    		 values 
+    		 (#{uniqueId},#{name},#{lat},#{lon},#{city},#{district},#{province},#{street},#{streetNumber},#{address},#{createTime})]]>
+    </insert>
+    
+    <update id="update" parameterType="com.dajie.message.model.map.PoiInfoObject">
+    		<![CDATA[update unique_poi_info set 
+    		name = #{name},
+    		lat = #{lat},lon = #{lon}, city=#{city},
+    		 district = #{district},
+    		province = #{province}, street = #{street}, 
+    		street_number = #{streetNumber},address = #{address},
+    		create_time=#{createTime}
+    		 where unique_id = #{uniqueId}]]>
+    	</update>
+    	
+    	<delete id="delete"  parameterType="String">
+    		<![CDATA[delete from unique_poi_info where unique_id = #{uniqueId}]]>
+    	</delete>
+    
+       	<select id="select" parameterType="String" resultType="com.dajie.message.model.map.PoiInfoObject" resultMap="map">
+    		<![CDATA[select unique_id,name,lat,lon,city,district,province,street,street_number,address,create_time 
+    		 from unique_poi_info where unique_id = #{uniqueId} ]]>
+    	</select>
+    
+</mapper>

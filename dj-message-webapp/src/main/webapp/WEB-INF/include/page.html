@@ -1,0 +1,36 @@
+<div>
+    <ul class="pagination pagination-sm">
+
+        <c:if test="${pageObject.firstPage==1}">
+            <li class="disabled"><a href="#">&laquo;</a></li>
+        </c:if>
+        <c:if test="${pageObject.firstPage!=1}">
+            <li><a href="${pageObject.link}pageNum=${pageObject.firstPage-1}">&laquo;</a></li>
+        </c:if>
+
+
+        <%--<li class="active"><span>1 <span class="sr-only">(current)</span></span></li>--%>
+        <c:forEach var="cur" begin="${pageObject.firstPage}" end="${pageObject.lastPage}" step="1">
+            <c:if test="${cur!=pageObject.curPage}">
+                <!--<c:if test="${cur>pageObject.totalPage}">-->
+                    <!--<li class="disabled"><a href="#">${cur}</a></li>-->
+                <!--</c:if>-->
+                <c:if test="${cur<=pageObject.totalPage}">
+                    <li><a href="${pageObject.link}pageNum=${cur}">${cur}</a></li>
+                </c:if>
+            </c:if>
+            <c:if test="${cur==pageObject.curPage}">
+                <li class="active"><a href="${pageObject.link}pageNum=${cur}">${cur}</a></li>
+            </c:if>
+
+        </c:forEach>
+
+        <c:if test="${pageObject.totalPage<=pageObject.lastPage}">
+            <li class="disabled"><a href="#">&raquo;</a></li>
+        </c:if>
+        <c:if test="${pageObject.totalPage>pageObject.lastPage}">
+            <li><a href="${pageObject.link}pageNum=${pageObject.lastPage+1}">&raquo;</a></li>
+        </c:if>
+
+    </ul>
+</div>

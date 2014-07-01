@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dajie</groupId>
+    <artifactId>dj-message</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>dj-message-api</module>
+        <module>dj-message-push-distributed</module>
+        <module>dj-message-push-client</module>
+        <module>dj-message-webapp</module>
+        <module>dj-message-push-server</module>
+        <module>dj-message-elasticsearch-map</module>
+        
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java-version>1.6</java-version>
+        <org.springframework-version>3.2.2.RELEASE</org.springframework-version>
+        <org.slf4j-version>1.7.6</org.slf4j-version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.6</version>
+        </dependency>
+    </dependencies>
+</project>

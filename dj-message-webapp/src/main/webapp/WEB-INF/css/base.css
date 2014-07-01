@@ -1,0 +1,55 @@
+.p-alert{
+	position:absolute;
+	bottom:-15px;
+	display:none;
+}
+.p-td-head{
+	width:10px;
+}
+.p-td-alert{
+	position:relative;
+	width: 480px;
+}
+
+.p-select{
+	font-size:x-large;
+}
+
+.p-small-input{
+	font-size:large;
+	height: 25px;
+}
+
+.noNewLine{
+    word-break: keep-all;
+}
+
+.thw-50{
+    width:50px;
+}
+
+.thw-100{
+    width:100px;
+}
+
+.thw-150{
+    width:150px;
+}
+
+.thw-200{
+    width:200px;
+}
+
+.thw-250{
+    width:250px;
+}
+
+.thw-400{
+    width:400px;
+}
+.thw-450{
+    width:450px;
+}
+.thw-500{
+    width:500px;
+}

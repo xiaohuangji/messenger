@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  
+   <display-name>message</display-name>
+   
+    <!-- #dajie_pro_need#
+	<listener>
+		<listener-class>com.dajie.base.listener.AssetsVersionLoaderListener</listener-class>
+	</listener>
+	#dajie_pro_need# -->
+
+   	<servlet>
+		<servlet-name>api</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+					<param-value>classpath*:spring/*.xml;
+					 classpath*:rabbit_config/*.xml;
+		             classpath*:dubbo_config/common.xml;
+		             classpath*:dubbo_config/common_consumer.xml;
+                     classpath:dubbo_config/*-app.xml;
+                     classpath*:dubbo_config/*-consumer.xml;
+                     classpath*:worker_config/*.xml;
+                     classpath*:app_config/*.xml;
+                     classpath*:dubbo_config/*gouda-mq.xml;
+       		</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+    <!--<servlet>-->
+        <!--<servlet-name>admin</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--<param-value>-->
+                <!--classpath*:spring/application*.xml;-->
+                <!--classpath*:dubbo_config/common.xml;-->
+                <!--classpath*:dubbo_config/common_consumer.xml;-->
+                <!--classpath:dubbo_config/*-app.xml;-->
+                <!--classpath*:dubbo_config/*-consumer.xml;-->
+                <!--/WEB-INF/admin-servlet.xml;-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+    
+	<servlet-mapping>
+		<servlet-name>api</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>admin</servlet-name>-->
+        <!--<url-pattern>/admin/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+     
+     <jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/fmt.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/c.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/sql</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/sql.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/x</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/x.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/fn</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/fn.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/pager-taglib.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://www.dajie.com/trial/core</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/trial.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+</web-app>
