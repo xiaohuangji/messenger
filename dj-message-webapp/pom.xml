@@ -15,7 +15,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<springframework-version>3.2.5.RELEASE</springframework-version>
+		<springframework-version>5.2.7.RELEASE</springframework-version>
 		<mybatis-spring-version>1.2.1</mybatis-spring-version>
 		<mybatis-version>3.2.3</mybatis-version>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
