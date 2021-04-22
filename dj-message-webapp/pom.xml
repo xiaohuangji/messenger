@@ -17,7 +17,7 @@
 	<properties>
 		<springframework-version>3.2.5.RELEASE</springframework-version>
 		<mybatis-spring-version>1.2.1</mybatis-spring-version>
-		<mybatis-version>3.2.3</mybatis-version>
+		<mybatis-version>3.5.6</mybatis-version>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
 		<jackson-jaxrs-version>1.9.13</jackson-jaxrs-version>
 		<jackson-version>2.2.0</jackson-version>
